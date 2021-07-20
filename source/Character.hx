@@ -153,7 +153,7 @@ class Character extends FlxSprite
 				addOffset("singUP");
 				addOffset("singRIGHT");
 				addOffset("singLEFT");
-				addOffset("singDOWN");
+				addOffset("singDOWN", 0, -65);
 
 				playAnim('idle');
 			case 'spooky':

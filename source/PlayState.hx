@@ -688,6 +688,17 @@ class PlayState extends MusicBeatState
 	
 						add(stageCurtains);
 				}
+			case 'chungusland':
+				{
+						defaultCamZoom = 0.65;
+						curStage = 'chungusland';
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('chungus/chungland'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.9, 0.9);
+						bg.active = false;
+						bg.screenCenter();
+						add(bg);
+				}
 			default:
 			{
 					defaultCamZoom = 0.9;
