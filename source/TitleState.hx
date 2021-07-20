@@ -149,9 +149,26 @@ class TitleState extends MusicBeatState
 			// music.loadStream(Paths.music('freakyMenu'));
 			// FlxG.sound.list.add(music);
 			// music.play();
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
+			defaultCamZoom = 0.65;
+			var rating:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('rating'));
+			rating.antialiasing = true;
+			rating.scrollFactor.set(0.9, 0.9);
+			rating.active = false;
+			rating.screenCenter();
+			add(rating);
+
+			FlxG.sound.play(Paths.sound('deez'), 1);
+		new FlxTimer().start(0.75, function(tmr:FlxTimer)
+		{
+			FlxG.sound.play(Paths.sound('boom'), 1);
+		});
+		new FlxTimer().start(3.25, function(tmr:FlxTimer)
+		{
+			remove(rating);
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
+		});
 		}
 
 		Conductor.changeBPM(102);
