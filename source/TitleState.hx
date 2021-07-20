@@ -149,8 +149,8 @@ class TitleState extends MusicBeatState
 			// music.loadStream(Paths.music('freakyMenu'));
 			// FlxG.sound.list.add(music);
 			// music.play();
-
-			defaultCamZoom = 0.65;
+	new FlxTimer().start(2, function(tmr:FlxTimer)
+	{
 			var rating:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('rating'));
 			rating.antialiasing = true;
 			rating.scrollFactor.set(0.9, 0.9);
@@ -169,6 +169,7 @@ class TitleState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		});
+	});
 		}
 
 		Conductor.changeBPM(102);
