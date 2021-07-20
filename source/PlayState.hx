@@ -697,6 +697,7 @@ class PlayState extends MusicBeatState
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
 						bg.screenCenter();
+						bg.setGraphicSize(Std.int(widShit * 1.35));
 						add(bg);
 				}
 			default:
