@@ -360,10 +360,6 @@ class StoryMenuState extends MusicBeatState
 
 	function updateText()
 	{
-	if (curWeek == 1)
-		{
-			
-		}
 		grpWeekCharacters.members[0].setCharacter(weekCharacters[curWeek][0]);
 		grpWeekCharacters.members[1].setCharacter(weekCharacters[curWeek][1]);
 		grpWeekCharacters.members[2].setCharacter(weekCharacters[curWeek][2]);
