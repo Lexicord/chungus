@@ -43,6 +43,7 @@ class TitleState extends MusicBeatState
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
+	var crdSpr:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
@@ -53,7 +54,7 @@ class TitleState extends MusicBeatState
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
-		
+
 		#if sys
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
 			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
@@ -63,7 +64,7 @@ class TitleState extends MusicBeatState
 		{
 			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " assets (DEFAULT)");
 		}
-		
+
 		PlayerSettings.init();
 
 		#if windows
@@ -72,7 +73,7 @@ class TitleState extends MusicBeatState
 		Application.current.onExit.add (function (exitCode) {
 			DiscordClient.shutdown();
 		 });
-		 
+
 		#end
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
@@ -230,6 +231,14 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
+		crdSpr = new FlxSprite(0, 0).loadGraphic(Paths.image('introCredit'));
+		add(crdSpr);
+		crdSpr.visible = false;
+		crdSpr.setGraphicSize(Std.int(crdSpr.width * 0.65));
+		crdSpr.updateHitbox();
+		crdSpr.screenCenter();
+		crdSpr.antialiasing = true;
+
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
@@ -331,7 +340,7 @@ class TitleState extends MusicBeatState
 				//var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
 				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/patchnotes/version.downloadMe");
 				var returnedData:Array<String> = [];
-				
+
 				http.onData = function (data:String)
 				{
 					returnedData[0] = data.substring(0, data.indexOf(';'));
@@ -348,12 +357,12 @@ class TitleState extends MusicBeatState
 						FlxG.switchState(new MainMenuState());
 					}
 				}
-				
+
 				http.onError = function (error) {
 				  trace('error: $error');
 				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
 				}
-				
+
 				http.request();
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
@@ -414,14 +423,17 @@ class TitleState extends MusicBeatState
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				crdSpr.visible = true;
+				createCoolText([' ', ' ', ' ', ' ', ' ', ' ']);
+			// createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
+				addMoreText('presents');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:
-				deleteCoolText();
+				crdSpr.visible = false;
+			  deleteCoolText();
 			// credTextShit.visible = false;
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
@@ -478,6 +490,7 @@ class TitleState extends MusicBeatState
 		if (!skippedIntro)
 		{
 			remove(ngSpr);
+			remove(crdSpr);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
