@@ -424,7 +424,7 @@ class TitleState extends MusicBeatState
 		{
 			case 1:
 				crdSpr.visible = true;
-				createCoolText([' ', ' ', ' ', ' ', ' ', ' ']);
+				createCoolText([' ', ' ', ' ', ' ', ' ']);
 			// createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 			// credTextShit.visible = true;
 			case 3:
