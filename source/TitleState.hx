@@ -44,6 +44,7 @@ class TitleState extends MusicBeatState
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
 	var crdSpr:FlxSprite;
+	var leonzSpr:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
@@ -238,6 +239,15 @@ class TitleState extends MusicBeatState
 		crdSpr.updateHitbox();
 		crdSpr.screenCenter();
 		crdSpr.antialiasing = true;
+
+		leonzSpr = new FlxSprite(0, 0).loadGraphic(Paths.image('leonz'));
+		add(leonzSpr);
+		leonzSpr.visible = false;
+		leonzSpr.setGraphicSize(Std.int(leonzSpr.width * 0.5));
+		leonzSpr.updateHitbox();
+		leonzSpr.screenCenter();
+		leonzSpr.y += 150;
+		leonzSpr.antialiasing = true;
 
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
@@ -438,11 +448,17 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
 			case 5:
+				createCoolText(['Featuring']);
+				/* sorry kade
 				if (Main.watermarks)
 					createCoolText(['Kade Engine', 'by']);
 				else
 					createCoolText(['In Partnership', 'with']);
+				*/
 			case 7:
+				addMoreText('Leonz');
+				leonzSpr.visible = true;
+				/* and tom
 				if (Main.watermarks)
 					addMoreText('KadeDeveloper');
 				else
@@ -450,10 +466,11 @@ class TitleState extends MusicBeatState
 					addMoreText('Newgrounds');
 					ngSpr.visible = true;
 				}
+				*/
 			// credTextShit.text += '\nNewgrounds';
 			case 8:
 				deleteCoolText();
-				ngSpr.visible = false;
+				leonzSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
@@ -491,6 +508,7 @@ class TitleState extends MusicBeatState
 		{
 			remove(ngSpr);
 			remove(crdSpr);
+			remove(leonzSpr);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
