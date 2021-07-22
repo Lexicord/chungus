@@ -1715,7 +1715,7 @@ class PlayState extends MusicBeatState
 
 			if (screenwacky == true)
 			{
-					
+
 			}
 
 			for (i in luaWiggles)
@@ -3355,7 +3355,7 @@ class PlayState extends MusicBeatState
 		{
 			// dad.dance();
 		}
-		if (curSong.toLowerCase() == 'gus' && curStep % 6 == 2 && curStep == 1150)
+		if (curSong.toLowerCase() == 'gus' && curStep % 6 == 2 && curStep > 1150)
 		{
 			FlxTween.tween(FlxG.camera, {zoom: 0.35}, 0.45, {ease: FlxEase.quadOut, type: BACKWARD});
 			var sussypenis:Int = FlxG.random.int(1, 5);
@@ -3370,10 +3370,10 @@ class PlayState extends MusicBeatState
 			else if (sussypenis == 5)
 			{FlxG.camera.flash(FlxColor.PINK, 0.5);}
 		}
-		if (curStep == 1150 && curSong.toLowerCase == 'gus') 
-		{
-			screenwacky = true;
-		}
+	//	if (curStep == 1150 && curSong.toLowerCase == 'gus') 
+	//	{
+	//		screenwacky = true;
+	//	}
 		if (curSong.toLowerCase() == 'gus' && curStep == 5) //sets default window shit because lol!
 		{	
 			startingX = Lib.application.window.x;
