@@ -735,7 +735,7 @@ class PlayState extends MusicBeatState
 					//bgBackBushes.updateHitbox();
 					bgBackBushes.screenCenter();
 					bgBackBushes.y += 200;
-					bgBackBushes.scrollFactor.set(0.6, 0.85);
+					bgBackBushes.scrollFactor.set(0.7, 0.85);
 					bgBackBushes.antialiasing = true;
 					add(bgBackBushes);
 
@@ -744,7 +744,7 @@ class PlayState extends MusicBeatState
 					//bgBushes.updateHitbox();
 					bgBushes.screenCenter();
 					bgBushes.y += 150;
-					bgBushes.scrollFactor.set(0.7, 0.85);
+					bgBushes.scrollFactor.set(0.9, 0.85);
 					bgBushes.antialiasing = true;
 					add(bgBushes);
 
@@ -754,7 +754,7 @@ class PlayState extends MusicBeatState
 					bgHole.screenCenter();
 					bgHole.x -= bgHole.width + 400;
 					bgHole.y += 700;
-					bgHole.scrollFactor.set(0.9, 0.9);
+					bgHole.scrollFactor.set(1, 1);
 					bgHole.antialiasing = true;
 					bgHole.flipX = true;
 					add(bgHole);
@@ -797,6 +797,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-christmas';
 			case 'gf-pixel':
 				gfVersion = 'gf-pixel';
+			case 'gf-dead':
+				gfVersion = 'gf-dead';
 			default:
 				gfVersion = 'gf';
 		}
@@ -864,9 +866,11 @@ class PlayState extends MusicBeatState
 			case 'mall':
 				boyfriend.x += 200;
 			case 'chungusland':
-				boyfriend.y += 175;
-				dad.y += 175;
-				gf.y += 175;
+				boyfriend.y += 200;
+				boyfriend.x += 250;
+				dad.y += 225;
+				gf.y += 400;
+				gf.x +- 400;
 			case 'mallEvil':
 				boyfriend.x += 320;
 				dad.y -= 80;
