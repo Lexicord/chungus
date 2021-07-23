@@ -171,6 +171,11 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
+	// stuff for gus
+	var screenwacky:Bool = false;
+	var startingX:Int = 0;
+	var startingY:Int = 0;
+
 	var fc:Bool = true;
 
 	var bgGirls:BackgroundGirls;
@@ -1769,6 +1774,12 @@ class PlayState extends MusicBeatState
 			luaModchart.setVar('hudZoom', camHUD.zoom);
 			luaModchart.setVar('cameraZoom',FlxG.camera.zoom);
 			luaModchart.executeState('update', [elapsed]);
+
+
+			if (screenwacky == true)
+			{
+
+			}
 
 			for (i in luaWiggles)
 			{
@@ -3409,8 +3420,32 @@ class PlayState extends MusicBeatState
 		{
 			// dad.dance();
 		}
-
-
+		if (curSong.toLowerCase() == 'gus' && curStep % 6 == 2 && curStep > 1150)
+		{
+			FlxTween.tween(FlxG.camera, {zoom: 0.35}, 0.45, {ease: FlxEase.quadOut, type: BACKWARD});
+			var sussypenis:Int = FlxG.random.int(1, 5);
+			if (sussypenis == 1)
+			{FlxG.camera.flash(FlxColor.RED, 0.5);}
+			else if (sussypenis == 2)
+			{FlxG.camera.flash(FlxColor.BLUE, 0.5);}
+			else if (sussypenis == 3)
+			{FlxG.camera.flash(FlxColor.GREEN, 0.5);}
+			else if (sussypenis == 4)
+			{FlxG.camera.flash(FlxColor.YELLOW, 0.5);}
+			else if (sussypenis == 5)
+			{FlxG.camera.flash(FlxColor.PINK, 0.5);}
+		}
+	//	if (curStep == 1150 && curSong.toLowerCase == 'gus') 
+	//	{
+	//		screenwacky = true;
+	//	}
+		if (curSong.toLowerCase() == 'gus' && curStep == 5) //sets default window shit because lol!
+		{	
+			startingX = Lib.application.window.x;
+			startingY = Lib.application.window.y;
+			trace(startingY);
+			trace(startingX);
+		}
 		// yes this updates every step.
 		// yes this is bad
 		// but i'm doing it to update misses and accuracy
