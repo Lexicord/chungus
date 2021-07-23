@@ -43,6 +43,8 @@ class TitleState extends MusicBeatState
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
+	var crdSpr:FlxSprite;
+	var leonzSpr:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
@@ -53,7 +55,7 @@ class TitleState extends MusicBeatState
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
-		
+
 		#if sys
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
 			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
@@ -63,7 +65,7 @@ class TitleState extends MusicBeatState
 		{
 			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " assets (DEFAULT)");
 		}
-		
+
 		PlayerSettings.init();
 
 		#if windows
@@ -72,7 +74,7 @@ class TitleState extends MusicBeatState
 		Application.current.onExit.add (function (exitCode) {
 			DiscordClient.shutdown();
 		 });
-		 
+
 		#end
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
@@ -230,6 +232,23 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
+		crdSpr = new FlxSprite(0, 0).loadGraphic(Paths.image('introCredit'));
+		add(crdSpr);
+		crdSpr.visible = false;
+		crdSpr.setGraphicSize(Std.int(crdSpr.width * 0.65));
+		crdSpr.updateHitbox();
+		crdSpr.screenCenter();
+		crdSpr.antialiasing = true;
+
+		leonzSpr = new FlxSprite(0, 0).loadGraphic(Paths.image('leonz'));
+		add(leonzSpr);
+		leonzSpr.visible = false;
+		leonzSpr.setGraphicSize(Std.int(leonzSpr.width * 0.5));
+		leonzSpr.updateHitbox();
+		leonzSpr.screenCenter();
+		leonzSpr.y += 150;
+		leonzSpr.antialiasing = true;
+
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
@@ -331,7 +350,7 @@ class TitleState extends MusicBeatState
 				//var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
 				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/patchnotes/version.downloadMe");
 				var returnedData:Array<String> = [];
-				
+
 				http.onData = function (data:String)
 				{
 					returnedData[0] = data.substring(0, data.indexOf(';'));
@@ -348,12 +367,12 @@ class TitleState extends MusicBeatState
 						FlxG.switchState(new MainMenuState());
 					}
 				}
-				
+
 				http.onError = function (error) {
 				  trace('error: $error');
 				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
 				}
-				
+
 				http.request();
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
@@ -414,23 +433,32 @@ class TitleState extends MusicBeatState
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				crdSpr.visible = true;
+				createCoolText([' ', ' ', ' ', ' ', ' ']);
+			// createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
+				addMoreText('presents');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:
-				deleteCoolText();
+				crdSpr.visible = false;
+			  deleteCoolText();
 			// credTextShit.visible = false;
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
 			case 5:
+				createCoolText(['Featuring']);
+				/* sorry kade
 				if (Main.watermarks)
 					createCoolText(['Kade Engine', 'by']);
 				else
 					createCoolText(['In Partnership', 'with']);
+				*/
 			case 7:
+				addMoreText('Leonz');
+				leonzSpr.visible = true;
+				/* and tom
 				if (Main.watermarks)
 					addMoreText('KadeDeveloper');
 				else
@@ -438,10 +466,11 @@ class TitleState extends MusicBeatState
 					addMoreText('Newgrounds');
 					ngSpr.visible = true;
 				}
+				*/
 			// credTextShit.text += '\nNewgrounds';
 			case 8:
 				deleteCoolText();
-				ngSpr.visible = false;
+				leonzSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
@@ -478,6 +507,8 @@ class TitleState extends MusicBeatState
 		if (!skippedIntro)
 		{
 			remove(ngSpr);
+			remove(crdSpr);
+			remove(leonzSpr);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
