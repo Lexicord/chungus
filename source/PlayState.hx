@@ -872,10 +872,10 @@ class PlayState extends MusicBeatState
 				boyfriend.x += 200;
 			case 'chungusland':
 				boyfriend.y += 200;
-				boyfriend.x += 250;
+				boyfriend.x +- 100;
 				dad.y += 225;
 				gf.y += 400;
-				gf.x +- 400;
+				gf.x += 125;
 			case 'mallEvil':
 				boyfriend.x += 320;
 				dad.y -= 80;
@@ -3423,24 +3423,33 @@ class PlayState extends MusicBeatState
 		if (curSong.toLowerCase() == 'gus' && curStep % 6 == 2 && curStep > 1150)
 		{
 			FlxTween.tween(FlxG.camera, {zoom: 0.35}, 0.45, {ease: FlxEase.quadOut, type: BACKWARD});
-			var sussypenis:Int = FlxG.random.int(1, 5);
-			if (sussypenis == 1)
-			{FlxG.camera.flash(FlxColor.RED, 0.5);}
-			else if (sussypenis == 2)
-			{FlxG.camera.flash(FlxColor.BLUE, 0.5);}
-			else if (sussypenis == 3)
-			{FlxG.camera.flash(FlxColor.GREEN, 0.5);}
-			else if (sussypenis == 4)
-			{FlxG.camera.flash(FlxColor.YELLOW, 0.5);}
-			else if (sussypenis == 5)
-			{FlxG.camera.flash(FlxColor.PINK, 0.5);}
+			var sussyPenis:FlxColor = new FlxColor();
+			switch (FlxG.random.int(1, 5))
+			{
+				case 1:
+					sussyPenis = FlxColor.RED;
+				case 2:
+					sussyPenis = FlxColor.ORANGE;
+				case 3:
+					sussyPenis = FlxColor.YELLOW;
+				case 4:
+					sussyPenis = FlxColor.GREEN;
+				case 5:
+					sussyPenis = FlxColor.BLUE;
+				case 6:
+					sussyPenis = FlxColor.PURPLE;
+				case 7:
+					sussyPenis = FlxColor.PINK;
+			}
+			FlxG.camera.flash(sussyPenis, 0.5);
+
 		}
-	//	if (curStep == 1150 && curSong.toLowerCase == 'gus') 
+	//	if (curStep == 1150 && curSong.toLowerCase == 'gus')
 	//	{
 	//		screenwacky = true;
 	//	}
 		if (curSong.toLowerCase() == 'gus' && curStep == 5) //sets default window shit because lol!
-		{	
+		{
 			startingX = Lib.application.window.x;
 			startingY = Lib.application.window.y;
 			trace(startingY);
