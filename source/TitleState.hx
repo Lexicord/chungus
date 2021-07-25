@@ -457,7 +457,7 @@ class TitleState extends MusicBeatState
 				*/
 			case 7:
 				addMoreText('Leonz');
-				addMoreText('Octopogs');
+				addMoreText('Octopox');
 				extrSpr.visible = true;
 				/* and tom
 				if (Main.watermarks)
