@@ -3444,10 +3444,10 @@ class PlayState extends MusicBeatState
 			FlxG.camera.flash(sussyPenis, 0.5);
 
 		}
-	//	if (curStep == 1150 && curSong.toLowerCase == 'gus')
-	//	{
-	//		screenwacky = true;
-	//	}
+		if (curStep == 1150 && curSong.toLowerCase == 'gus')
+		{
+			screenwacky = true;
+		}
 		if (curSong.toLowerCase() == 'gus' && curStep == 5) //sets default window shit because lol!
 		{
 			startingX = Lib.application.window.x;
