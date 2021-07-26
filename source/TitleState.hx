@@ -44,7 +44,7 @@ class TitleState extends MusicBeatState
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
 	var crdSpr:FlxSprite;
-	var leonzSpr:FlxSprite;
+	var extrSpr:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
@@ -183,7 +183,7 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
+		logoBl = new FlxSprite(-200, -100);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = true;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
@@ -240,14 +240,14 @@ class TitleState extends MusicBeatState
 		crdSpr.screenCenter();
 		crdSpr.antialiasing = true;
 
-		leonzSpr = new FlxSprite(0, 0).loadGraphic(Paths.image('leonz'));
-		add(leonzSpr);
-		leonzSpr.visible = false;
-		leonzSpr.setGraphicSize(Std.int(leonzSpr.width * 0.5));
-		leonzSpr.updateHitbox();
-		leonzSpr.screenCenter();
-		leonzSpr.y += 150;
-		leonzSpr.antialiasing = true;
+		extrSpr = new FlxSprite(0, 0).loadGraphic(Paths.image('extraCred'));
+		add(extrSpr);
+		extrSpr.visible = false;
+		extrSpr.setGraphicSize(Std.int(extrSpr.width * 0.5));
+		extrSpr.updateHitbox();
+		extrSpr.screenCenter();
+		extrSpr.y += 150;
+		extrSpr.antialiasing = true;
 
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
@@ -457,7 +457,8 @@ class TitleState extends MusicBeatState
 				*/
 			case 7:
 				addMoreText('Leonz');
-				leonzSpr.visible = true;
+				addMoreText('Octopox');
+				extrSpr.visible = true;
 				/* and tom
 				if (Main.watermarks)
 					addMoreText('KadeDeveloper');
@@ -470,7 +471,7 @@ class TitleState extends MusicBeatState
 			// credTextShit.text += '\nNewgrounds';
 			case 8:
 				deleteCoolText();
-				leonzSpr.visible = false;
+				extrSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
@@ -518,7 +519,7 @@ class TitleState extends MusicBeatState
 		{
 			remove(ngSpr);
 			remove(crdSpr);
-			remove(leonzSpr);
+			remove(extrSpr);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
