@@ -3444,7 +3444,7 @@ class PlayState extends MusicBeatState
 			FlxG.camera.flash(sussyPenis, 0.5);
 
 		}
-		if (curStep == 1150 && curSong.toLowerCase == 'gus')
+		if (curStep == 1150 && curSong.toLowerCase() == 'gus')
 		{
 			screenwacky = true;
 		}
