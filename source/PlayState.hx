@@ -404,7 +404,7 @@ class PlayState extends MusicBeatState
 					bgBushes.antialiasing = true;
 					add(bgBushes);
 
-					var bgHole:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('chungus/hole'));
+					var bgHole:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('chungus/HOLE'));
 					bgHole.setGraphicSize(Std.int(bgHole.width * 1.35));
 					//bgHole.updateHitbox();
 					bgHole.screenCenter();
