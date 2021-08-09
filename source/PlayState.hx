@@ -221,7 +221,8 @@ class PlayState extends MusicBeatState
 	public function addObject(object:FlxBasic) { add(object); }
 	public function removeObject(object:FlxBasic) { remove(object); }
 
-
+	public static var playCutscene:Bool = false;
+	
 	override public function create()
 	{
 		instance = this;
@@ -341,6 +342,15 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+			case 'big':
+				if (playCutscene) {
+					camHUD.visible = false;
+					camGame.visible = false;
+					LoadingState.loadAndSwitchState(new VideoState("assets/videos/big.webm", new PlayState()));
+				} else {
+					camHUD.visible = true;
+					camGame.visible = true;
+				}
 		}
 
 		switch(SONG.stage)
