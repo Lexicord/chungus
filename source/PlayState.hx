@@ -342,15 +342,7 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
 			case 'thorns':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
-			case 'big':
-				if (playCutscene) {
-					camHUD.visible = false;
-					camGame.visible = false;
-					LoadingState.loadAndSwitchState(new VideoState("assets/videos/big.webm", new PlayState()));
-				} else {
-					camHUD.visible = true;
-					camGame.visible = true;
-				}
+			
 		}
 
 		switch(SONG.stage)
@@ -770,6 +762,20 @@ class PlayState extends MusicBeatState
 					schoolIntro(doof);
 				case 'thorns':
 					schoolIntro(doof);
+				case 'big':
+					if (playCutscene) {
+						camHUD.visible = false;
+						camGame.visible = false;
+						LoadingState.loadAndSwitchState(new VideoState2("assets/videos/big.webm", function () {
+							FlxG.switchState(new PlayState());
+						}
+						));
+						playCutscene = false;
+					} else {
+						camHUD.visible = true;
+						camGame.visible = true;
+						startCountdown();
+					}
 				default:
 					startCountdown();
 			}
@@ -2238,7 +2244,21 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					LoadingState.loadAndSwitchState(new PlayState());
+					switch (SONG.song.toLowerCase()) {
+						case 'chun':
+							LoadingState.loadAndSwitchState(new VideoState2("assets/videos/chun.webm", function () {
+								FlxG.switchState(new PlayState());
+							}
+							));
+						case 'gus':
+							LoadingState.loadAndSwitchState(new VideoState2("assets/videos/gus.webm", function () {
+								FlxG.switchState(new PlayState());
+							}
+							));
+						default:
+							LoadingState.loadAndSwitchState(new PlayState());
+					}
+					
 				}
 			}
 			else

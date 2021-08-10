@@ -250,6 +250,7 @@ class TitleState extends MusicBeatState
 		initialized = true;
 
 		// credGroup.add(credTextShit);
+		
 	}
 
 	function getIntroTextShit():Array<Array<String>>
@@ -279,7 +280,8 @@ class TitleState extends MusicBeatState
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
-
+		if (FlxG.keys.justPressed.ENTER)
+			FlxG.switchState(new MainMenuState());
 		super.update(elapsed);
 	}
 
