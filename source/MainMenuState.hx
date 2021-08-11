@@ -118,6 +118,10 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+		
+		if (FlxG.sound.music != null)
+            Conductor.songPosition = FlxG.sound.music.time;
+
 		orange.alpha = 0.6 + Math.sin((Conductor.songPosition / 1000) * (Conductor.bpm / 60) * 2.0) * 0.1;
 
 		if (!selectedSomethin)
@@ -228,7 +232,7 @@ class MainMenuState extends MusicBeatState
 		if (curSelected < 0)
 			curSelected = options.length - 1;
 
-		orange.y = origY + (curSelected * 28);
+		orange.y = origY + (curSelected * 28.25);
 
 		for (i in 0...options.length)
 		{
