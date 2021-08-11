@@ -190,7 +190,7 @@ class MainMenuState extends MusicBeatState
 			case 'story mode':
 				PlayState.storyPlaylist = ['BIG','CHUN','GUS'];
 				PlayState.isStoryMode = true;
-
+				PlayState.playCutscene = true;
 				var diffic = "";
 
 				switch (2)
