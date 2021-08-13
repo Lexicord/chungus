@@ -182,10 +182,10 @@ class Character extends FlxSprite
 				animation.addByPrefix('singRIGHT', 'Chungus Right', 24, false);
 
 				addOffset('idle');
-				addOffset("singUP", 10, 46);
-				addOffset("singRIGHT", 10, 0);
-				addOffset("singLEFT", 10, 0);
-				addOffset("singDOWN", 70, -180);
+				addOffset("singUP", 8, 48);
+				addOffset("singRIGHT", 5, -2);
+				addOffset("singLEFT", -2, 0);
+				addOffset("singDOWN", 220, -370);
 
 				playAnim('idle');
 			case 'spooky':
