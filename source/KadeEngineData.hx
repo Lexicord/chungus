@@ -75,6 +75,8 @@ class KadeEngineData
 		if (FlxG.save.data.cpuStrums == null)
 			FlxG.save.data.cpuStrums = false;
 
+		if (FlxG.save.data.britishMode == null)
+			FlxG.save.data.britishMode = false;
 		Conductor.recalculateTimings();
 
 		Main.watermarks = FlxG.save.data.watermark;

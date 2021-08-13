@@ -208,6 +208,10 @@ class Character extends FlxSprite
 				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
 				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
 
+				animation.addByPrefix('firstDeath2', "BF explode", 24, false);
+				animation.addByPrefix('deathLoop2', "bfchung10", 24, true);
+				animation.addByPrefix('deathConfirm2', "bfchung20", 24, false);
+
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 
 				addOffset('idle', -5);
@@ -223,6 +227,9 @@ class Character extends FlxSprite
 				addOffset('firstDeath', 37, 11);
 				addOffset('deathLoop', 37, 5);
 				addOffset('deathConfirm', 37, 69);
+				addOffset('firstDeath2', 707, 551);
+				addOffset('deathLoop2', 37, 5);
+				addOffset('deathConfirm2', -93, -41);
 				addOffset('scared', -4);
 
 				playAnim('idle');

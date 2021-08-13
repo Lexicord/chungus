@@ -125,6 +125,28 @@ class CpuStrums extends Option
 	}
 
 }
+class BritishMode extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.britishMode = !FlxG.save.data.britishMode;
+		
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return  FlxG.save.data.britishMode ? "Bri'ish Mode: On" : "Bri'ish Mode: Off";
+	}
+
+}
 
 class DownscrollOption extends Option
 {

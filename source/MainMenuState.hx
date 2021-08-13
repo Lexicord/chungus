@@ -46,7 +46,7 @@ class MainMenuState extends MusicBeatState
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
-
+		FlxG.mouse.visible = false; 
 		persistentUpdate = persistentDraw = true;
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungbg'));
@@ -87,7 +87,11 @@ class MainMenuState extends MusicBeatState
 		for (i in 0...optionShit.length)
 		{
 			var num:Int = i + 1;
-			var menuItem:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungus' + num, 'preload'));
+			var menuItem:FlxSprite = new FlxSprite();
+			if (num == 1 && FlxG.save.data.britishMode)
+				menuItem = new FlxSprite().loadGraphic(Paths.image('menu/british' + num, 'preload'));
+			else
+				menuItem = new FlxSprite().loadGraphic(Paths.image('menu/chungus' + num, 'preload'));
 			menuItem.setGraphicSize(Std.int(FlxG.width / FlxG.camera.zoom), Std.int(FlxG.height / FlxG.camera.zoom));
 			add(menuItem);
 			options.push(menuItem);
@@ -218,6 +222,8 @@ class MainMenuState extends MusicBeatState
 			case 'options':
 				FlxG.switchState(new OptionsMenu());
 			case 'credits':
+				FlxG.switchState(new CreditState());
+				
 				trace('entering credits');
 		}
 	}

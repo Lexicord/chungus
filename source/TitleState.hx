@@ -46,6 +46,7 @@ class TitleState extends MusicBeatState
 	var crdSpr:FlxSprite;
 	var extrSpr:FlxSprite;
 
+	var canSkip:Bool = false;
 	var curWacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;
@@ -56,7 +57,8 @@ class TitleState extends MusicBeatState
 		/*#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end*/
-
+	
+		
 		#if sys
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
 			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
@@ -157,6 +159,7 @@ class TitleState extends MusicBeatState
 			remove(rating);
 			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
+			canSkip = true;
 		});
 	});
 		}
@@ -281,7 +284,7 @@ class TitleState extends MusicBeatState
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
-		if (FlxG.keys.justPressed.ENTER)
+		if (FlxG.keys.justPressed.ENTER && canSkip)
 			FlxG.switchState(new MainMenuState());
 		super.update(elapsed);
 	}

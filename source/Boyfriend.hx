@@ -11,6 +11,7 @@ class Boyfriend extends Character
 {
 	public var stunned:Bool = false;
 
+	public var FUCKKK:Void -> Void;
 	public function new(x:Float, y:Float, ?char:String = 'bf')
 	{
 		super(x, y, char, true);
@@ -32,9 +33,18 @@ class Boyfriend extends Character
 				playAnim('idle', true, false, 10);
 			}
 
-			if (animation.curAnim.name == 'firstDeath' && animation.curAnim.finished)
-			{
-				playAnim('deathLoop');
+			if (PlayState.bfChung > 2) {
+				if (animation.curAnim.name == 'firstDeath2' && animation.curAnim.finished)
+					{
+						FUCKKK();
+						playAnim('deathLoop2');
+					}
+				
+			} else {
+				if (animation.curAnim.name == 'firstDeath' && animation.curAnim.finished)
+				{
+					playAnim('deathLoop');
+				}
 			}
 		}
 

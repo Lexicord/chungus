@@ -22,6 +22,9 @@ class OptionsMenu extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var options:Array<OptionCatagory> = [
+		new OptionCatagory("Bri'ish", [
+			new BritishMode("Makes the mod bri'ish"),
+		]),
 		new OptionCatagory("Gameplay", [
 			new DFJKOption(controls),
 			new DownscrollOption("Change the layout of the strumline."),
