@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ChungusSenpai.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Big Chungun0000" x="4" y="4" width="500" height="754" frameX="0" frameY="-19" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0001" x="4" y="4" width="500" height="754" frameX="0" frameY="-19" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0002" x="508" y="4" width="491" height="773" frameX="-8" frameY="0" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0003" x="508" y="4" width="491" height="773" frameX="-8" frameY="0" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0004" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0005" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0006" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0007" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0008" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0009" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0010" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0011" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0012" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Big Chungun0013" x="1003" y="4" width="492" height="769" frameX="-7" frameY="-4" frameWidth="500" frameHeight="773"/>
+	<SubTexture name="Chungus Down0000" x="1499" y="4" width="770" height="308" frameX="0" frameY="-64" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0001" x="1499" y="4" width="770" height="308" frameX="0" frameY="-64" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0002" x="2273" y="4" width="659" height="372" frameX="-101" frameY="0" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0003" x="2273" y="4" width="659" height="372" frameX="-101" frameY="0" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0004" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0005" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0006" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0007" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0008" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0009" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0010" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0011" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0012" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0013" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0014" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0015" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0016" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0017" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0018" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0019" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0020" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0021" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0022" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0023" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0024" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Down0025" x="2936" y="4" width="682" height="352" frameX="-85" frameY="-20" frameWidth="770" frameHeight="372"/>
+	<SubTexture name="Chungus Idle0000" x="4" y="781" width="502" height="762" frameX="0" frameY="-7" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0001" x="510" y="781" width="502" height="762" frameX="0" frameY="-7" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0002" x="1016" y="781" width="504" height="767" frameX="0" frameY="-2" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0003" x="1524" y="781" width="504" height="767" frameX="0" frameY="-2" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0004" x="2032" y="781" width="497" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0005" x="2533" y="781" width="497" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0006" x="3034" y="781" width="494" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0007" x="3532" y="781" width="494" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0008" x="4" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0009" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0010" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0011" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0012" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0013" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0014" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0015" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0016" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0017" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Idle0018" x="500" y="1554" width="492" height="769" frameX="0" frameY="0" frameWidth="504" frameHeight="769"/>
+	<SubTexture name="Chungus Left0000" x="996" y="1554" width="439" height="769" frameX="0" frameY="0" frameWidth="450" frameHeight="769"/>
+	<SubTexture name="Chungus Left0001" x="996" y="1554" width="439" height="769" frameX="0" frameY="0" frameWidth="450" frameHeight="769"/>
+	<SubTexture name="Chungus Left0002" x="1439" y="1554" width="448" height="769" frameX="0" frameY="0" frameWidth="450" frameHeight="769"/>
+	<SubTexture name="Chungus Left0003" x="1439" y="1554" width="448" height="769" frameX="0" frameY="0" frameWidth="450" frameHeight="769"/>
+	<SubTexture name="Chungus Left0004" x="1891" y="1554" width="450" height="769"/>
+	<SubTexture name="Chungus Left0005" x="1891" y="1554" width="450" height="769"/>
+	<SubTexture name="Chungus Left0006" x="1891" y="1554" width="450" height="769"/>
+	<SubTexture name="Chungus Left0007" x="1891" y="1554" width="450" height="769"/>
+	<SubTexture name="Chungus Left0008" x="1891" y="1554" width="450" height="769"/>
+	<SubTexture name="Chungus Left0009" x="1891" y="1554" width="450" height="769"/>
+	<SubTexture name="Chungus Right0000" x="2345" y="1554" width="516" height="769" frameX="-2" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0001" x="2345" y="1554" width="516" height="769" frameX="-2" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0002" x="2865" y="1554" width="509" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0003" x="2865" y="1554" width="509" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0004" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0005" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0006" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0007" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0008" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0009" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0010" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0011" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0012" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0013" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0014" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0015" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0016" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0017" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0018" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0019" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0020" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0021" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Right0022" x="3378" y="1554" width="507" height="769" frameX="0" frameY="0" frameWidth="518" frameHeight="769"/>
+	<SubTexture name="Chungus Up0000" x="4" y="2327" width="448" height="819" frameX="-21" frameY="0" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0001" x="4" y="2327" width="448" height="819" frameX="-21" frameY="0" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0002" x="456" y="2327" width="484" height="793" frameX="-7" frameY="-27" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0003" x="456" y="2327" width="484" height="793" frameX="-7" frameY="-27" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0004" x="944" y="2327" width="499" height="776" frameX="-1" frameY="-44" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0005" x="944" y="2327" width="499" height="776" frameX="-1" frameY="-44" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0006" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0007" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0008" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0009" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0010" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0011" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0012" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0013" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0014" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0015" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+	<SubTexture name="Chungus Up0016" x="1447" y="2327" width="502" height="773" frameX="0" frameY="-47" frameWidth="502" frameHeight="820"/>
+</TextureAtlas>
