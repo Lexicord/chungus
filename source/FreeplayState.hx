@@ -80,10 +80,12 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...songs.length)
 		{
 			var theText = songs[i].songName;
-			if (FlxG.save.data.britishMode && i == 0)
+			if (FlxG.save.data.britishMode && songs[i].songName.toLowerCase() == 'tutorial')
 				theText = 'Tutourial';
-			if (FlxG.save.data.britishMode && i == 1)
+			if (FlxG.save.data.britishMode && songs[i].songName.toLowerCase() == 'big')
 				theText = 'Large';
+			if (FlxG.save.data.britishMode && songs[i].songName.toLowerCase() == 'thorn')
+				theText = 'Thourn';
 
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, theText, true, false, true);
 			songText.isMenuItem = true;

@@ -646,6 +646,8 @@ class PlayState extends MusicBeatState
 				var theSong:String = SONG.song;
 				if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'big')
 					theSong = 'large';
+				if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'thorn')
+					theSong = 'thourn';
 				var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,theSong, 16);
 				if (FlxG.save.data.downscroll)
 					songName.y -= 3;
@@ -675,6 +677,8 @@ class PlayState extends MusicBeatState
 			theSong = 'large';
 		if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'tutorial')
 			theSong = 'tutourial';
+		if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'thorn')
+			theSong = 'thourn';
 		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,theSong + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy"), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
@@ -1082,6 +1086,8 @@ class PlayState extends MusicBeatState
 				theSong = 'large';
 			if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'tutorial')
 				theSong = 'tutourial';
+			if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'thorn')
+				theSong = 'thourn';
 			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,theSong, 16);
 			if (FlxG.save.data.downscroll)
 				songName.y -= 3;

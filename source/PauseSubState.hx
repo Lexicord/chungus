@@ -50,6 +50,8 @@ class PauseSubState extends MusicBeatSubstate
 			theSong = 'large';
 		if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'tutorial')
 			theSong = 'tutourial';
+		if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'thorn')
+			theSong = 'thourn';
 		levelInfo.text += theSong;
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
