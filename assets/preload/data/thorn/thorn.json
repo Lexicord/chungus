@@ -1,7 +1,7 @@
 {
      "song" : {
          "isMoody" : false
-        ,"player1" : "bf-pixel"
+        ,"player1" : "bf"
         ,"notes" : [
              {
                  "sectionNotes" : [
@@ -2572,16 +2572,15 @@
                 ,"mustHitSection" : true
             }
         ]
-        ,"player2" : "spirit"
+        ,"player2" : "chungus"
         ,"isHey" : false
-        ,"cutsceneType" : "spirit"
         ,"isSpooky" : true
-        ,"song" : "Thorns"
-        ,"uiType" : "pixel"
-        ,"stage" : "schoolEvil"
+        ,"song" : "Thorn"
+        ,"uiType" : "normal"
+        ,"stage" : "chungusland"
         ,"needsVoices" : true
         ,"validScore" : true
-        ,"gf" : "gf-pixel"
+        ,"gf" : "gf-dead"
         ,"bpm" : 190
         ,"speed" : 1.3
     }

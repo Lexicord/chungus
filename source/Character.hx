@@ -171,6 +171,23 @@ class Character extends FlxSprite
 				addOffset("singDOWN", 70, -180);
 
 				playAnim('idle');
+			case 'chunguskun':
+				tex = Paths.getSparrowAtlas('characters/ChungusSenpai','shared');
+				frames = tex;
+
+				animation.addByPrefix('idle', "Chungus Idle", 24, false);
+				animation.addByPrefix('singUP', "Chungus Up", 24, false);
+				animation.addByPrefix('singDOWN', "Chungus Down", 24, false);
+				animation.addByPrefix('singLEFT', 'Chungus Left', 24, false);
+				animation.addByPrefix('singRIGHT', 'Chungus Right', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 10, 46);
+				addOffset("singRIGHT", 10, 0);
+				addOffset("singLEFT", 10, 0);
+				addOffset("singDOWN", 70, -180);
+
+				playAnim('idle');
 			case 'spooky':
 				tex = Paths.getSparrowAtlas('characters/spooky_kids_assets');
 				frames = tex;

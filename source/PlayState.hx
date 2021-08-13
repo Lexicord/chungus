@@ -1050,12 +1050,7 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 		}
-		if (curSong.toLowerCase() == 'gus')
-		{
-			FlxTween.tween(Lib.application.window, {x: Capabilities.screenResolutionX * 0.5 - Lib.application.window.width / 2, y: Capabilities.screenResolutionY * 0.5 - Lib.application.window.height / 2}, 0.07, {
-				ease: FlxEase.quadOut,
-			});
-		}
+		
 		FlxG.sound.music.onComplete = endSong;
 		vocals.play();
 
@@ -2217,6 +2212,13 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+		if (curSong.toLowerCase() == 'gus')
+		{
+			FlxTween.tween(Lib.application.window, {x: Capabilities.screenResolutionX * 0.5 - Lib.application.window.width / 2, y: Capabilities.screenResolutionY * 0.5 - Lib.application.window.height / 2}, 0.07, {
+				ease: FlxEase.quadOut,
+			});
+		}
+
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else
@@ -3212,6 +3214,7 @@ class PlayState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
+		Lib.application.window.fullscreen = false;
 		if (curSong.toLowerCase() == 'gus' && curStep > 1150)
 		{
 			if (initialPos == null)

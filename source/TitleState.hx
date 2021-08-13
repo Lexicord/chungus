@@ -80,7 +80,7 @@ class TitleState extends MusicBeatState
 
 		#end
 
-		curWacky = FlxG.random.getObject(getIntroTextShit());
+		
 
 		// DEBUG BULLSHIT
 
@@ -98,7 +98,7 @@ class TitleState extends MusicBeatState
 		KadeEngineData.initSave();
 
 		Highscore.load();
-
+		curWacky = FlxG.random.getObject(getIntroTextShit());
 		#if FREEPLAY
 		FlxG.switchState(new FreeplayState());
 		#elseif CHARTING
@@ -270,7 +270,11 @@ class TitleState extends MusicBeatState
 
 	function getIntroTextShit():Array<Array<String>>
 	{
-		var fullText:String = Assets.getText(Paths.txt('introText'));
+		var fullText:String;
+		if (FlxG.save.data.britishMode)
+			fullText = Assets.getText(Paths.txt('britishText'));
+		else
+			fullText = Assets.getText(Paths.txt('introText'));
 
 		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];
@@ -421,9 +425,12 @@ class TitleState extends MusicBeatState
 				addMoreText(curWacky[1]);
 			case 29:
 				deleteCoolText();
-				if (Math.random() < 0.5)
-					addMoreText('Big');
-				else
+				if (Math.random() < 0.5) {
+					if (FlxG.save.data.britishMode)
+						addMoreText('Large');
+					else
+						addMoreText('Big');
+				} else
 					addMoreText('Friday');
 			case 30:
 				if (Math.random() < 0.5)
