@@ -16,15 +16,25 @@ class BritishState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungbg', 'shared'));
-		bg.screenCenter();
+		var theChung:String = 'menu/chungbg';
+		if (FlxG.save.data.britishMode)
+			theChung = 'menu/chungbg2';
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(theChung));
 		add(bg);
-		
-		
-		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"Ello, gov, You've unlocked bri'ish mode!\n" +
-			"you're bri'ish now",
+			
+		var txt:FlxText;
+		if (FlxG.save.data.britishMode) {
+			txt = new FlxText(0, 0, FlxG.width,
+				"Ello, gov, You've still fucking british!\n" +
+				"fuck you",
 			32);
+		} else {
+			txt = new FlxText(0, 0, FlxG.width,
+				"Ello, gov, You've unlocked bri'ish mode!\n" +
+				"you're bri'ish now",
+			32);
+			MainMenuState.fuckingBrit = true;
+		}
 		
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.fromRGB(200, 200, 200), CENTER);
 		txt.borderColor = FlxColor.BLACK;

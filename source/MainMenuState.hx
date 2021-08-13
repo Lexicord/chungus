@@ -25,6 +25,7 @@ class MainMenuState extends MusicBeatState
 {
 	var curSelected:Int = 0;
 
+	public static var fuckingBrit:Bool = false;
 	var optionShit:Array<String> = ['story mode', 'freeplay', 'options', 'credits'];
 
 	var newGaming:FlxText;
@@ -36,6 +37,8 @@ class MainMenuState extends MusicBeatState
 
 	var origY:Float;
 
+	var dumbShittyPoopooMode:Bool = false;
+
 	override function create()
 	{
 		#if windows
@@ -44,12 +47,18 @@ class MainMenuState extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			if (FlxG.save.data.britishMode)
+				FlxG.sound.playMusic(Paths.music('Wallace__Gromit_-_Extended_Theme'));
+			else
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
 		FlxG.mouse.visible = false; 
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungbg'));
+		var theChung:String = 'menu/chungbg';
+		if (FlxG.save.data.britishMode)
+			theChung = 'menu/chungbg2';
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(theChung));
 		bg.scrollFactor.set();
 		bg.setGraphicSize(Std.int(FlxG.width / FlxG.camera.zoom), Std.int(FlxG.height / FlxG.camera.zoom));
 		bg.updateHitbox();
@@ -57,7 +66,10 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = true;
 		add(bg);
 
-		var chungtitle:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungtitle'));
+		var cTitle:String = 'menu/chungtitle';
+		if (FlxG.save.data.britishMode)
+			cTitle = 'menu/chungtitle2';
+		var chungtitle:FlxSprite = new FlxSprite().loadGraphic(Paths.image(cTitle));
 		chungtitle.scrollFactor.set();
 		chungtitle.setGraphicSize(Std.int(FlxG.width / FlxG.camera.zoom), Std.int(FlxG.height / FlxG.camera.zoom));
 		chungtitle.updateHitbox();
@@ -65,7 +77,11 @@ class MainMenuState extends MusicBeatState
 		chungtitle.antialiasing = true;
 		add(chungtitle);
 
-		var chungus:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chung1'));
+		var chungus:FlxSprite;
+		if (FlxG.save.data.britishMode)
+			chungus = new FlxSprite().loadGraphic(Paths.image('menu/chung2'));
+		else
+			chungus = new FlxSprite().loadGraphic(Paths.image('menu/chung1'));
 		chungus.scrollFactor.set();
 		chungus.setGraphicSize(Std.int(FlxG.width / FlxG.camera.zoom), Std.int(FlxG.height / FlxG.camera.zoom));
 		chungus.updateHitbox();
@@ -90,8 +106,15 @@ class MainMenuState extends MusicBeatState
 			var menuItem:FlxSprite = new FlxSprite();
 			if (num == 1 && FlxG.save.data.britishMode)
 				menuItem = new FlxSprite().loadGraphic(Paths.image('menu/british' + num, 'preload'));
-			else
-				menuItem = new FlxSprite().loadGraphic(Paths.image('menu/chungus' + num, 'preload'));
+			else {
+				if (fuckingBrit && num == 3) {
+					fuckingBrit = false;
+					dumbShittyPoopooMode = true;
+					menuItem = new FlxSprite().loadGraphic(Paths.image('menu/british' + num, 'preload'));
+				} else {
+					menuItem = new FlxSprite().loadGraphic(Paths.image('menu/chungus' + num, 'preload'));
+				}
+			}
 			menuItem.setGraphicSize(Std.int(FlxG.width / FlxG.camera.zoom), Std.int(FlxG.height / FlxG.camera.zoom));
 			add(menuItem);
 			options.push(menuItem);
@@ -131,14 +154,21 @@ class MainMenuState extends MusicBeatState
 		{
 			if (controls.UP_P)
 			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
+				if (curSelected == 2 && dumbShittyPoopooMode)
+					FlxG.sound.play(Paths.sound('oi'), 0.7);
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 
 			if (controls.DOWN_P)
 			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				
 				changeItem(1);
+				if (curSelected == 2 && dumbShittyPoopooMode)
+					FlxG.sound.play(Paths.sound('oi'), 0.7);
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 
 			if (controls.ACCEPT)

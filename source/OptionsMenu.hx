@@ -72,7 +72,10 @@ class OptionsMenu extends MusicBeatState
 	var blackBorder:FlxSprite;
 	override function create()
 	{
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menu/chungbg"));
+		var theChung:String = 'menu/chungbg';
+		if (FlxG.save.data.britishMode)
+			theChung = 'menu/chungbg2';
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image(theChung));
 		
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();

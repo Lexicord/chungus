@@ -68,7 +68,10 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungbg'));
+		var theChung:String = 'menu/chungbg';
+		if (FlxG.save.data.britishMode)
+			theChung = 'menu/chungbg2';
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(theChung));
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -76,7 +79,13 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false, true);
+			var theText = songs[i].songName;
+			if (FlxG.save.data.britishMode && i == 0)
+				theText = 'Tutourial';
+			if (FlxG.save.data.britishMode && i == 1)
+				theText = 'Large';
+
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, theText, true, false, true);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);

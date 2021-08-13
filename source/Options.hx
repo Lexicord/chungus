@@ -136,7 +136,10 @@ class BritishMode extends Option
 	public override function press():Bool
 	{
 		FlxG.save.data.britishMode = !FlxG.save.data.britishMode;
-		
+		if (FlxG.sound.music.playing)
+			FlxG.sound.music.stop();
+		if (FlxG.save.data.britishMode)
+			FlxG.sound.play(Paths.sound('oi'), 1);
 		display = updateDisplay();
 		return true;
 	}

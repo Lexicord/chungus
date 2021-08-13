@@ -140,16 +140,22 @@ class TitleState extends MusicBeatState
 			// music.loadStream(Paths.music('freakyMenu'));
 			// FlxG.sound.list.add(music);
 			// music.play();
-	new FlxTimer().start(2, function(tmr:FlxTimer)
+	new FlxTimer().start(1, function(tmr:FlxTimer)
 	{
-			var rating:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image('rating'));
+		var theShit:String = 'rating';
+		if (FlxG.save.data.britishMode)
+			theShit = 'british rating';
+			var rating:FlxSprite = new FlxSprite(0,0).loadGraphic(Paths.image(theShit));
 			rating.antialiasing = true;
 			rating.scrollFactor.set(0.9, 0.9);
 			rating.active = false;
 			rating.screenCenter();
 			add(rating);
 
-			FlxG.sound.play(Paths.sound('deez'), 1);
+			if (FlxG.save.data.britishMode)
+				FlxG.sound.play(Paths.sound('delightful'), 1);
+			else
+				FlxG.sound.play(Paths.sound('deez'), 1);
 		new FlxTimer().start(0.75, function(tmr:FlxTimer)
 		{
 			FlxG.sound.play(Paths.sound('boom'), 1);
@@ -157,14 +163,19 @@ class TitleState extends MusicBeatState
 		new FlxTimer().start(3.25, function(tmr:FlxTimer)
 		{
 			remove(rating);
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			if (FlxG.save.data.britishMode)
+				FlxG.sound.playMusic(Paths.music('Wallace__Gromit_-_Extended_Theme'));
+			else
+				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 			canSkip = true;
 		});
 	});
 		}
-
-		Conductor.changeBPM(126);
+		if (FlxG.save.data.britishMode)
+			Conductor.changeBPM(123);
+		else
+			Conductor.changeBPM(126);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
@@ -285,7 +296,7 @@ class TitleState extends MusicBeatState
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
 		if (FlxG.keys.justPressed.ENTER && canSkip)
-			FlxG.switchState(new MainMenuState());
+			FlxG.switchState(new EpilipseWarning());
 		super.update(elapsed);
 	}
 
@@ -425,7 +436,7 @@ class TitleState extends MusicBeatState
 				else
 					addMoreText('Funkin');
 			case 32:
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(new EpilipseWarning());
 		}
 	}
 }

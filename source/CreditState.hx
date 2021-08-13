@@ -48,25 +48,43 @@ class CreditState extends MusicBeatState
 		'brightfyre',
 		'endigo'
 	];
+	var theFuckingPeopleButBritish:Array<String> = [
+		'large ash',
+		'large crystal',
+		'large leonz',
+		'largesense',
+		'largoalrok',
+		'largenate',
+		'large munky',
+		'large animations',
+		'largopox',
+		'largeoaken',
+		'largicord',
+		'largebear',
+		'daniel large',
+		'largefyre',
+		'largigo'
+	];
 	var theFuckingLabels:Array<String> = [
-		'programmer and speedrunner',
-		'balls man',
-		'leonz',
-		'nonsense',
-		'aboalrok',
-		'charting and Humongous Nathaniel',
-		'munky',
+		'coolest coder and speedrunner',
+		'director and musician',
+		'made pause music',
+		'artist and animator',
+		'was there',
+		'Humongous Nathaniel and charting',
+		'background artist',
 		'joey animations',
-		'octopox',
-		'riveroaken',
-		'lexicord',
-		'madbeat422',
-		'daniel voltage',
-		'brightfyre',
-		'endigo'
+		'voice of chungus for songs',
+		'made chungus-kun',
+		'coder',
+		'artist',
+		'BRI ISH!!!!!',
+		'coder',
+		'made original big chungus song'
 	];
 	var theFuckingLinks:Array<String> = [
 		'https://twitter.com/ash__i_guess_',
+		'https://www.youtube.com/c/CrystalSlime_TheCoolest/',
 		'https://www.youtube.com/channel/UCjGfaP-eiT-XGeCRjGM9fGQ',
 		'https://www.youtube.com/channel/UCnp4LuZgNt0KwiTMSZN7GIw',
 		'https://twitter.com/AboAlrokArt',
@@ -83,6 +101,8 @@ class CreditState extends MusicBeatState
 	];
 	override function create()
 	{
+		if (FlxG.save.data.britishMode)
+			theFuckingLabels[5] = 'Large Nathaniel and charting';
 		 #if windows
 		 // Updating Discord Rich Presence
 		 DiscordClient.changePresence("In the Credits Menu", null);
@@ -94,7 +114,11 @@ class CreditState extends MusicBeatState
 		isDebug = true;
 		#end
 		FlxG.mouse.visible = true;
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menu/chungbg'));
+		
+		var theChung:String = 'menu/chungbg';
+		if (FlxG.save.data.britishMode)
+			theChung = 'menu/chungbg2';
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(theChung));
 		add(bg);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
@@ -103,7 +127,10 @@ class CreditState extends MusicBeatState
 		add(grpLabels);*/
 		for (i in 0...theFuckingPeople.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (150 * i) + 100, theFuckingPeople[i], true, false, true);
+			var theText = theFuckingPeople[i];
+			if (FlxG.save.data.britishMode)
+				theText = theFuckingPeopleButBritish[i];
+			var songText:Alphabet = new Alphabet(0, (150 * i) + 100, theText, true, false, true);
 			songText.x += 300;
 			grpSongs.add(songText);
 

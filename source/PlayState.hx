@@ -1,5 +1,6 @@
 package;
 
+import Options.BritishMode;
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
 import openfl.geom.Matrix;
@@ -642,7 +643,10 @@ class PlayState extends MusicBeatState
 				songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
 				add(songPosBar);
 
-				var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
+				var theSong:String = SONG.song;
+				if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'big')
+					theSong = 'large';
+				var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,theSong, 16);
 				if (FlxG.save.data.downscroll)
 					songName.y -= 3;
 				songName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
@@ -666,7 +670,12 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 
 		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy"), 16);
+		var theSong = SONG.song;
+		if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'big')
+			theSong = 'large';
+		if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'tutorial')
+			theSong = 'tutourial';
+		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,theSong + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy"), 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
@@ -1041,7 +1050,12 @@ class PlayState extends MusicBeatState
 		{
 			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
 		}
-
+		if (curSong.toLowerCase() == 'gus')
+		{
+			FlxTween.tween(Lib.application.window, {x: Capabilities.screenResolutionX * 0.5 - Lib.application.window.width / 2, y: Capabilities.screenResolutionY * 0.5 - Lib.application.window.height / 2}, 0.07, {
+				ease: FlxEase.quadOut,
+			});
+		}
 		FlxG.sound.music.onComplete = endSong;
 		vocals.play();
 
@@ -1068,7 +1082,12 @@ class PlayState extends MusicBeatState
 			songPosBar.createFilledBar(FlxColor.GRAY, FlxColor.LIME);
 			add(songPosBar);
 
-			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,SONG.song, 16);
+			var theSong:String = SONG.song;
+			if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'big')
+				theSong = 'large';
+			if (FlxG.save.data.britishMode && theSong.toLowerCase() == 'tutorial')
+				theSong = 'tutourial';
+			var songName = new FlxText(songPosBG.x + (songPosBG.width / 2) - 20,songPosBG.y,0,theSong, 16);
 			if (FlxG.save.data.downscroll)
 				songName.y -= 3;
 			songName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
@@ -2230,7 +2249,10 @@ class PlayState extends MusicBeatState
 
 		if (offsetTesting)
 		{
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			if (FlxG.save.data.britishMode)
+				FlxG.sound.playMusic(Paths.music('Wallace__Gromit_-_Extended_Theme'));
+			else
+				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			offsetTesting = false;
 			LoadingState.loadAndSwitchState(new OptionsMenu());
 			FlxG.save.data.offset = offsetTest;
@@ -2245,12 +2267,25 @@ class PlayState extends MusicBeatState
 
 				if (storyPlaylist.length <= 0)
 				{
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					if (FlxG.save.data.britishMode)
+						FlxG.sound.playMusic(Paths.music('Wallace__Gromit_-_Extended_Theme'));
+					else
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 
-					FlxG.switchState(new BritishState());
+					if (FlxG.save.data.britishMode) {
+						LoadingState.loadAndSwitchState(new VideoState2("assets/videos/tea party.webm", function () {
+							FlxG.switchState(new BritishState());
+						}
+						));
+					} else {
+						LoadingState.loadAndSwitchState(new VideoState2("assets/videos/death.webm", function () {
+							FlxG.switchState(new BritishState());
+						}
+						));
+					}
 				}
 				else
 				{
@@ -3198,7 +3233,8 @@ class PlayState extends MusicBeatState
 				case 6:
 					sussyPenis = FlxColor.fromString('#FFA94CCE');
 			}
-			FlxG.camera.flash(sussyPenis, 0.5, null, true);
+			if (FlxG.save.data.flashing)
+				FlxG.camera.flash(sussyPenis, 0.5, null, true);
 			switch (shitAssPoopy) {
 				case 0:
 					FlxTween.tween(Lib.application.window, {x: Capabilities.screenResolutionX * 0.38 - Lib.application.window.width / 2, y: Capabilities.screenResolutionY * 0.6 - Lib.application.window.height / 2}, 0.07, {
