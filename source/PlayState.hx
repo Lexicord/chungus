@@ -106,6 +106,7 @@ class PlayState extends MusicBeatState
 	var detailsPausedText:String = "";
 	#end
 
+	public static var playThorn:Bool = false;
 	private var vocals:FlxSound;
 
 	public static var dad:Character;
@@ -355,6 +356,20 @@ class PlayState extends MusicBeatState
 
 		switch(SONG.stage)
 		{
+			case 'chungusschool':
+				var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
+				var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
+
+				var posX = 400;
+				var posY = 200;
+
+				var bg:FlxSprite = new FlxSprite(posX, posY);
+				bg.frames = Paths.getSparrowAtlas('animatedEvilSchool', 'shared');
+				bg.animation.addByPrefix('idle', 'background 2', 24);
+				bg.animation.play('idle');
+				bg.scrollFactor.set(0.8, 0.9);
+				bg.scale.set(6, 6);
+				add(bg);
 			case 'chungusland':
 			{
 					defaultCamZoom = 0.7;
@@ -512,6 +527,8 @@ class PlayState extends MusicBeatState
 				dad.x -= 150;
 				dad.y += 100;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+			case 'chunguskun':
+				camPos.y = dad.getMidpoint().y;
 		}
 
 
@@ -811,6 +828,12 @@ class PlayState extends MusicBeatState
 		{
 			switch (curSong.toLowerCase())
 			{
+				case 'thorn':
+					if (playThorn) {
+						schoolIntro(doof);
+						playThorn = false;
+					} else
+						startCountdown();
 				default:
 					startCountdown();
 			}
@@ -828,22 +851,22 @@ class PlayState extends MusicBeatState
 		black.scrollFactor.set();
 		add(black);
 
-		var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, 0xFFff1b31);
+		var red:FlxSprite = new FlxSprite(-500, -500).makeGraphic(FlxG.width * 2, FlxG.height * 2, 0xFFff1b31);
 		red.scrollFactor.set();
 
 		var senpaiEvil:FlxSprite = new FlxSprite();
-		senpaiEvil.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
+		senpaiEvil.frames = Paths.getSparrowAtlas('senpaiCrazy', 'shared');
 		senpaiEvil.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
 		senpaiEvil.setGraphicSize(Std.int(senpaiEvil.width * 6));
 		senpaiEvil.scrollFactor.set();
 		senpaiEvil.updateHitbox();
 		senpaiEvil.screenCenter();
 
-		if (SONG.song.toLowerCase() == 'roses' || SONG.song.toLowerCase() == 'thorns')
+		if (SONG.song.toLowerCase() == 'roses' || SONG.song.toLowerCase() == 'thorn')
 		{
 			remove(black);
 
-			if (SONG.song.toLowerCase() == 'thorns')
+			if (SONG.song.toLowerCase() == 'thorn')
 			{
 				add(red);
 			}
@@ -863,7 +886,7 @@ class PlayState extends MusicBeatState
 				{
 					inCutscene = true;
 
-					if (SONG.song.toLowerCase() == 'thorns')
+					if (SONG.song.toLowerCase() == 'thorn')
 					{
 						add(senpaiEvil);
 						senpaiEvil.alpha = 0;
@@ -883,7 +906,7 @@ class PlayState extends MusicBeatState
 									remove(red);
 									FlxG.camera.fade(FlxColor.WHITE, 0.01, true, function()
 									{
-										add(dialogueBox);
+										startCountdown();
 									}, true);
 								});
 								new FlxTimer().start(3.2, function(deadTime:FlxTimer)
